@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>
+		Health Care Management
+	</title>
+	<style>
+		body {
+			margin: 4rem;
+		}
+
+		#formContainer {
+			margin-bottom: 20px;
+		}
+
+		label {
+			display: block;
+			margin-top: 10px;
+		}
+
+		input,
+		textarea {
+			width: 300px;
+			padding: 8px;
+			margin-top: 5px;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+		}
+
+		button {
+			margin: 10px;
+			padding: 8px 16px;
+			background-color: #4CAF50;
+			color: #fff;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+		}
+
+		button:hover {
+			background-color: #45a049;
+		}
+
+		table {
+			border-collapse: collapse;
+			margin-bottom: 20px;
+			width: 100%;
+		}
+
+		th,
+		td {
+			border: 1px solid #ddd;
+			padding: 8px;
+			text-align: left;
+		}
+
+		th {
+			background-color: #4CAF50;
+			color: #fff;
+		}
+	</style>
+</head>
+
+<body>
+	{% include 'messages.html' %}
+	<h1 style="color: green;">
+		Health Care!!
+	</h1>
+	<h2>Enter Patient Details</h2>
+	<form class="form-inline" action="patient" method="POST">
+    {% csrf_token %}
+	<div id="formContainer">
+		<label for="nameInput">
+			Name:
+		</label>
+		<input type="text"
+			id="nameInput"
+			placeholder="Enter your name"
+			name="patient_name">
+		<label for="nameInput">
+			Age:
+		</label>
+		<input type="text"
+			id="age"
+			placeholder="Enter your age"
+			name="age">
+		<label for="emailInput">
+			Email I'd:
+		</label>
+		<input type="email"
+			id="emailInput"
+			placeholder="Enter your email",
+			name="email">
+		<label for="numberInput">
+			Mobile Details:
+		</label>
+		<input type="text"
+			id="numberInput"
+			placeholder="Enter your mobile details"
+			name="phone_number">
+		<label for="addressInput">
+			Address:
+		</label>
+		<textarea id="addressInput"
+				placeholder="Enter your address"
+				name="äddress">
+		</textarea>
+		<label for="diagnosis">
+			Diagnosis:
+		</label>
+		<textarea id="diagnosis"
+				placeholder="Diagnosis Details"
+				name="diagnosis">
+		</textarea>
+		<button type="submit" class="btn btn-success">Add</button>
+	</div>
+	</form>
+	<div class="form-group">
+  		<form class="form-inline" action="display" method="GET">
+        	<button type="submit">Show all details</button>
+  		</form>
+	</div>
+	<div class="form-group">
+		<form class="form-inline" action=display/book-appointment method="GET">
+			<button type="submit">Book Appointment</button>
+		</form>
+	</div>
+	<div class="form-group">
+		<form class="form-inline" action=display/cancel method="GET">
+			<button type="submit">Cancel Appointment</button>
+		</form>
+	</div>
+</body>
+
+</html>

@@ -1,0 +1,108 @@
+{% load static %}
+
+{{ '<' }}{{ '!DOCTYPE html>' }}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Patient Details</title>
+    <h1><SPAN STYLE="color:#FFFFFF">Patient Details</SPAN></h1>
+    <style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #D6EEEE;
+}
+</style>
+<style>
+   body{
+    background: url({% static 'images/h4.jpg' %}) no-repeat center center fixed;
+    -webkit-background-size:cover;
+    -moz--background-size:cover;
+    -o--background-size:cover;
+    background-size: cover;
+   }
+</style>
+</head>
+<body>
+<table border="1" style="font-family:Georgia, Garamond, Serif;color:#FFFFFF;font-style:Bold;">
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Age
+            </th>
+            <th>
+                Phone Number
+            </th>
+            <th>
+                Email Address
+            </th>
+            <th>
+                Diagnosis
+            </th>
+            <th>
+                Address
+            </th>
+            <th>
+                Date
+            </th>
+            <th>
+                Time
+            </th>
+            <th>
+                Appointment Status
+            </th>
+        </tr>
+    </thead>
+    {% for instance in data %}
+        <tr>
+            <td>
+                {{instance.patient_name}}
+            </td>
+            <td>
+                {{instance.age}}
+            </td>
+            <td>
+                {{instance.phone_number}}
+            </td>
+            <td>
+                {{instance.email}}
+            </td>
+            <td>
+                {{instance.diagnosis}}
+            </td>
+            <td>
+                {{instance.address}}
+            </td>
+            <td>
+                {{instance.date}}
+            </td>
+            <td>
+                {{instance.time}}
+            </td>
+            <td>
+                {{instance.appointment_status}}
+            </td>
+    {% endfor %}
+</table>
+    <br> <br>
+	<div class="form-group">
+		<form class="form-inline" action="\" method="GET">
+			<button type="submit">Go Back</button>
+		</form>
+	</div>
+<br><br>
+</body>
+</html>
